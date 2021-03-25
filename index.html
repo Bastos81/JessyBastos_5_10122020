@@ -1,99 +1,147 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="Site e-commerce de vente de caméras vintage par Orinoco">
-    <title>Orinoco - Caméras vintage</title>
-    <script src="https://kit.fontawesome.com/a430ebc583.js" crossorigin="anonymous"></script>
-    <!--Bootstrap css-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" content="Site e-commerce de vente de caméras vintage par Orinoco">
+  <title>Orinoco - Caméras vintage</title>
+  <script src="https://kit.fontawesome.com/a430ebc583.js" crossorigin="anonymous"></script>
+<!--Bootstrap css-->
     
-    <link rel="stylesheet" href="./css/style.css">
-
+  <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
-    <!--Header-->
-    <div class="bg-info">
-        <header class="container">
-            <div class="row">
-                <nav class="col navbar navbar-expand-lg navbar-dark">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="images/logo.png" alt="logo Orinoco">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav">
-                            <li class="nav-item active">
-                              <a class="nav-link" href="index.html">Accueil</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="html/panier.html">
-                                    <i class="fas fa-shopping-basket"></i>
-                                        Panier
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+
+<!--Header-->
+
+  <div class="bg-info">
+    <header class="container">
+      <div class="row">
+          <nav class="col navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="index.html">
+              <img src="images/logo.png" alt="logo Orinoco">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="html/panier.html">
+                    <i class="fas fa-shopping-basket"></i>
+                      Panier
+                  </a>
+                </li>
+              </ul>
             </div>
-        </header>
+          </nav>
+      </div>
+    </header>
+  </div>
+
+  <!--Section-->
+    
+  <section class="container">
+    <div class="row my-3">
+      <div class="col">
+        <h1>Caméras vintage</h1>
+      </div>
     </div>
-    <!--Section-->
-    <div class="container">
-        <section class="row">
-            <div class="col-12 col-lg-4">
-                <div class="card mb-4 mb-lg-0 border-primary shadow">
-                  <img src="images/certificate.png" alt="certificate" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title">Devenez diplômé</h5>
-                    <p class="card-text">De zéro à héros, obtenez un diplôme en informatique.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-lg-4">
-                <div class="card mb-4 mb-lg-0 border-primary shadow">
-                    <img src="images/instruction.png" alt="instructor" class="card-img-top">
-                    <div class="card-body">
-                    <h5 class="card-title">Formateurs de qualités</h5>
-                    <p class="card-text">Tous nos cours sont réalisés par les meilleurs informaticiens.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-lg-4">
-                <div class="card mb-4 mb-lg-0 border-primary shadow">
-                  <img src="images/job.png" alt="job search" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title">Un travail graranti</h5>
-                    <p class="card-text">Nous vous garantissons un emploi à l'issue de votre formation.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </section>
+    <div class="row mb-3">
+      <div class="col">
+        <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+      </div>
+    </div>
+    <div class="row" id="productList">
+      <div class="col-12 col-lg-4">
+        <div class="card mb-4 border-light shadow-sm">
+          <img src="images/vcam_1.jpg" alt="Animations CSS modernes" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Créez des animations CSS</h5>
+            <p class="card-text">Vous allez plonger dans le monde des animations CSS pour donner vie à vos pages web !</p>
+            <a href="lesson-1.html" class="btn btn-primary stretched-link">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card mb-4 border-light shadow-sm">
+          <img src="images/vcam_2.jpg" alt="Programmation JavaScript" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Programmer avec JavaScript</h5>
+            <p class="card-text">Ce cours est conçu pour vous enseigner les bases du langage de programmation JavaScript.</p>
+            <a href="lesson-1.html" class="btn btn-primary stretched-link">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card mb-4 border-light shadow-sm">
+          <img src="images/vcam_3.jpg" alt="Programmation Swift" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Les fondamentaux de Swift</h5>
+            <p class="card-text">Découvrez le développement iOS et réalisez des applications taillées pour l'iPhone et l'iPad !</p>
+            <a href="lesson-1.html" class="btn btn-primary stretched-link">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card mb-4 border-light shadow-sm">
+          <img src="images/vcam_4.jpg" alt="Programmation Swift" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Les fondamentaux de Swift</h5>
+            <p class="card-text">Découvrez le développement iOS et réalisez des applications taillées pour l'iPhone et l'iPad !</p>
+            <a href="lesson-1.html" class="btn btn-primary stretched-link">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card mb-4 border-light shadow-sm">
+          <img src="images/vcam_5.jpg" alt="Programmation Swift" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Les fondamentaux de Swift</h5>
+            <p class="card-text">Découvrez le développement iOS et réalisez des applications taillées pour l'iPhone et l'iPad !</p>
+            <a href="lesson-1.html" class="btn btn-primary stretched-link">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card mb-4 border-light shadow-sm">
+          <img src="images/swift.jpeg" alt="Programmation Swift" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Les fondamentaux de Swift</h5>
+            <p class="card-text">Découvrez le développement iOS et réalisez des applications taillées pour l'iPhone et l'iPad !</p>
+            <a href="lesson-1.html" class="btn btn-primary stretched-link">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 <!--Footer-->
-        <footer class="bg-light mt-5">
-            <div class="container">
-              <div class="row pt-4 pb-3">
-                <div class="col">
-                  <ul class="list-inline text-center">
-                    <li class="list-inline-item"><a href="#">Contact</a></li>
-                    <li class="list-inline-item">&middot;</li>
-                    <li class="list-inline-item"><a href="#">Mentions légales</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-        </footer>
 
+  <footer class="bg-light mt-5">
+    <div class="container">
+      <div class="row pt-4 pb-3">
+        <div class="col">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item"><a href="#">Contact</a></li>
+            <li class="list-inline-item">&middot;</li>
+            <li class="list-inline-item"><a href="#">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </footer>
 
-    <!--Fichier js-->
-    <script src="js/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!--Fichier js-->
+
+  <script src="js/index.js"></script>
 </body>
 </html>
