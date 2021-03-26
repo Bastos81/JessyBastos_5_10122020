@@ -9,9 +9,23 @@
 /*# Components */
 .camera-item {
   transition: all 250ms ease-in-out;
+  text-align: center;
 }
 .camera-item:hover {
   opacity: 0.9;
+}
+.camera-item .camera-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.camera-item .camera-description {
+  font-size: 1rem;
+}
+.camera-item .camera-prix {
+  font-size: 1.2rem;
+}
+.camera-item .camera-btn {
+  width: 100%;
 }
 
 /*# Layout */
@@ -21,18 +35,34 @@ header div nav a img {
 .footer--social svg {
   height: 30px;
   width: 30px;
+  color: white;
+}
+
+.footer--social svg:hover {
+  color: orange;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
 }
 
 footer a:hover {
   text-decoration: none;
+  color: orange;
 }
 
 .footer--social a:hover {
   text-decoration: none;
 }
 
-.card img {
+.product-index img {
   height: 250px;
+  object-fit: cover;
+}
+
+.product-page img {
+  height: 800px;
   object-fit: cover;
 }
 
