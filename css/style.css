@@ -7,10 +7,30 @@
 /*# Vendors */
 /*# Base */
 /*# Components */
+.camera-item {
+  transition: all 250ms ease-in-out;
+}
+.camera-item:hover {
+  opacity: 0.9;
+}
+
 /*# Layout */
 header div nav a img {
   width: 200px;
 }
+.footer--social svg {
+  height: 30px;
+  width: 30px;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+.footer--social a:hover {
+  text-decoration: none;
+}
+
 .card img {
   height: 250px;
   object-fit: cover;

@@ -1,0 +1,6 @@
+@mixin camera-item{
+    transition: all 250ms ease-in-out;
+    &:hover{
+        opacity: 0.9;
+    }
+}
