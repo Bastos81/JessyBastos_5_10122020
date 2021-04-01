@@ -1,3 +1,4 @@
+// Création des map produit
 const showCameras = async() => {
 	await getCameras();
   
@@ -17,7 +18,7 @@ const showCameras = async() => {
                         <div class="card-body camera-info">
                             <p class="card-text camera-description">${camera.description}</p>
                             <p class="card-text camera-prix font-weight-bold text-right">${numberWithCommas(camera.price/100 + " €")}</p>
-                            <a href="./html/produit.html" class="stretched-link btn btn-dark camera-btn">Voir le produit</a>
+                            <a href="./html/produit.html?id= ${camera._id}" class="stretched-link btn btn-dark camera-btn">Voir le produit</a>
                         </div>
                     </div>
                 </div>
@@ -28,11 +29,8 @@ const showCameras = async() => {
 
 showCameras();
 
+// Permet de faire une recherche de produit
 searchInput.addEventListener('input', (e) => {searchTerm = e.target.value;
   showCameras();	
 });
-  
-function numberWithCommas(x){
-	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-}
 
