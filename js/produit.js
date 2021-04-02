@@ -4,7 +4,6 @@ const cameraUrlSpace = cameraUrl.searchParams.get("id");
 const cameraUrlId = cameraUrlSpace.trim();
 
 const resultsLenses = document.getElementById("cameraLenses");
-let cameraLenses;
 
 
 // Affichage de la caméra en fonction de l'Url
@@ -24,16 +23,19 @@ const showChoosenCameras = async() => {
                                 </div>
                                 <div class="card-body camera-info">
                                     <p class="card-text camera-description">${camera.description}</p>
-                                    <p class="card-text camera-prix font-weight-bold">${numberWithCommas(camera.price/100 + " €")}</p>
                                     <form>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlSelect1">Objectif</label>
-                                            <select class="form-control" id="cameraLenses">
-                                                
+                                        <div class="form-group row">
+                                            <label for="cameraLenses" class="col-sm-2 col-form-label">Objectif</label>
+                                            <select class="col-sm-9" id="cameraLenses">
+
                                             </select>
                                         </div>
+                                        <div class="form-group row">
+                                            <label for="quantity" class="col-sm-2 col-form-label">Quantité</label>
+                                            <input class="col-sm-9" type="number" name="quantity" id="quantity" min="1" max="10">
+                                        </div>
                                     </form>
-
+                                    <p class="card-text camera-prix font-weight-bold">${numberWithCommas(camera.price/100 + " € / unité")}</p>
                                     <a href="../index.html" class="stretched-link btn btn-dark col-4">Retour à l'accueil</a>
                                     <a href="./html/produit.html" class="stretched-link btn btn-dark col-4">Ajouter au panier</a>
                                 </div>
@@ -42,23 +44,17 @@ const showChoosenCameras = async() => {
                     `
                 )).join('')
     ); 
-}; 
-
-
-showChoosenCameras();
-
-// Affichage de la caméra en fonction de l'Url
-const selectLenses = async() => {
-	await getCameras();
+    // Affichage des lenses
     resultsLenses.innerHTML = (
-            cameraLenses
-            .map(camera => ( 
+        cameras
+        .filter(camera => camera._id === cameraUrlId)
+        .map(camera => ( 
 
-                    ` 
-                    <option>${camera.lenses[1]}</option>
-                    `
-                )).join('')
-    ); 
+            ` 
+            <option>${camera.lenses[0]}</option>
+            `
+        )).join('')
+    );
 }; 
 
 
