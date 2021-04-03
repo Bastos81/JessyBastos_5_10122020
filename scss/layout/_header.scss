@@ -6,16 +6,12 @@ header{
                     width: 200px;
                 }
             }
-            & button{
-
-            }
-            & div{
-                
-            }
         }
     }
 }
-
 .navbar-nav{
     align-items: center;
+    & a:hover{
+        color: $colour-primary!important;  
+    }
 }

@@ -10,14 +10,14 @@ const showCameras = async() => {
 
             ` 
                 <div class="col-12 col-lg-4">
-                    <div class="card camera-item mb-4 border-light shadow-lg product-index">
+                    <div class="card camera-item mb-4 border-light rounded shadow-lg product-index">
                         <img class="camera-image card-img-top" alt="Appareil Photo Vintage" src="${camera.imageUrl}" />
                         <div class="card-header bg-dark text-white">
                             <h5 class="card-title camera-name">${camera.name}</h5>
                         </div>
                         <div class="card-body camera-info">
                             <p class="card-text camera-description">${camera.description}</p>
-                            <p class="card-text camera-prix font-weight-bold text-right">${numberWithCommas(camera.price/100 + " €")}</p>
+                            <p class=" card-text camera-prix font-weight-bold">${numberWithCommas("Prix :"+ " " + camera.price/100 + " € / unité")}</p>
                             <a href="./html/produit.html?id= ${camera._id}" class="stretched-link btn btn-dark camera-btn">Voir le produit</a>
                         </div>
                     </div>
