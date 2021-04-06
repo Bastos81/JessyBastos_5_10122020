@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Site e-commerce de vente de caméras vintage par Orinoco">
-  <title>Orinoco - Caméras vintage</title>
+  <title>Orinoco - Panier</title>
   <script src="https://kit.fontawesome.com/a430ebc583.js" crossorigin="anonymous"></script>
 <!--Bootstrap css-->
     
@@ -64,14 +64,90 @@
         <tfoot class="thead-dark"> <!-- Pied de tableau -->
             <tr>
                 <th scope="row">Total de votre commande</th>
-                <td colspan="5">Larry the Bird</td>
+                <td id="total-commande" class="font-weight-bolder" colspan="5"><!-- Script JS--></td>
             </tr>
         </tfoot>
         <tbody id="product-panier"> <!-- Corps du tableau -->
-            <!-- Script JS Création des map caméra-->
+            <!-- Script JS-->
             
         </tbody>
     </table>
+
+    
+    <form>
+      <h2>Vos coordonnées</h2>
+      <p><em>Tous les champs sont obligatoires</em></p>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationServer01">Prénom</label>
+          <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Prénom" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationServer02">Nom</label>
+          <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Nom" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationServer03">Adresse</label>
+          <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Adresse" required>
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationServer04">Ville</label>
+          <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="Ville" required>
+          <div class="invalid-feedback">
+            Please provide a valid state.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationServer05">Code Postal</label>
+          <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="Code Postal" required>
+          <div class="invalid-feedback">
+            Please provide a valid zip.
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationServerEmail">Adresse e-mail</label>
+          <input type="email" class="form-control is-valid" id="validationServerEmail" placeholder="Adresse e-mail" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please provide a valid state.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationServer06">Numéro de téléphone</label>
+          <input type="tel" class="form-control is-invalid" id="validationServer06" placeholder="Numéro de téléphone" required>
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+          <label class="form-check-label" for="invalidCheck3">
+            Agree to terms and conditions
+          </label>
+          <div class="invalid-feedback">
+            You must agree before submitting.
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
   </section>
   
 <!--Footer-->

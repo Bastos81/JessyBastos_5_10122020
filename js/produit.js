@@ -76,19 +76,22 @@ const showChoosenCameras = async() => {
         let resultsLensesChoice = document.getElementById('cameraLenses').value;
         let quantityCamera = document.getElementById('quantity').value;
         let priceCamera = numberWithCommas(choosenCamera.price/100 + ",00 €");
-        let totalPriceCamera = numberWithCommas(choosenCamera.price/100*quantityCamera + ",00 €");
+        let totalPriceCamera = choosenCamera.price/100*quantityCamera;
         let product = new CameraSelected (idCamera, nameCamera, resultsLensesChoice, quantityCamera, priceCamera, totalPriceCamera);
         const popupValidation = window.alert("Le produit a bien été ajouté au panier!");
         const ajoutProduitLocalStorage =() => {
                 productPanier.push(product);
                 localStorage.setItem("productPanier", JSON.stringify(productPanier));
         };
-        if(productPanier){
+        if(productPanier === null || productPanier == 0){
+            productPanier = []
             ajoutProduitLocalStorage();
         }
-        else{ 
-            productPanier = []
+        else if(productPanier.idCamera === choosenCamera._id){ 
+            productPanier.quantityCamera += numberWithCommas(choosenCamera.price/100 + ",00 €");
             ajoutProduitLocalStorage(); 
+        } else{
+            ajoutProduitLocalStorage();
         }
     })
 }; 
