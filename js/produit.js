@@ -5,12 +5,13 @@ const cameraUrlId = cameraUrlSpace.trim();
 
 // Création d'une classe de la caméra avec l'option et la quantité
 class CameraSelected {
-    constructor(idCamera, nameCamera, resultsLensesChoice, quantityCamera, priceCamera) {
+    constructor(idCamera, nameCamera, resultsLensesChoice, quantityCamera, priceCamera, totalPriceCamera) {
         this.idCamera = idCamera;
         this.nameCamera = nameCamera;
         this.resultsLensesChoice = resultsLensesChoice;
         this.quantityCamera = quantityCamera;
         this.priceCamera = priceCamera;
+        this.totalPriceCamera = totalPriceCamera;
     }
 }
 
@@ -18,6 +19,7 @@ class CameraSelected {
 const showChoosenCameras = async() => {
 	await getCameras();
     let choosenCamera = cameras.find(cameras => cameras['_id'] === cameraUrlId);
+    // Création du HTML
     results.innerHTML = (
         ` 
         <div class="col-12 mt-2">
@@ -73,21 +75,21 @@ const showChoosenCameras = async() => {
         let nameCamera = choosenCamera.name;
         let resultsLensesChoice = document.getElementById('cameraLenses').value;
         let quantityCamera = document.getElementById('quantity').value;
-        let priceCamera = choosenCamera.price/100*quantityCamera + ",00 €";
-        let product = new CameraSelected (idCamera, nameCamera, resultsLensesChoice, quantityCamera, priceCamera);
+        let priceCamera = numberWithCommas(choosenCamera.price/100 + ",00 €");
+        let totalPriceCamera = numberWithCommas(choosenCamera.price/100*quantityCamera + ",00 €");
+        let product = new CameraSelected (idCamera, nameCamera, resultsLensesChoice, quantityCamera, priceCamera, totalPriceCamera);
         const popupValidation = window.alert("Le produit a bien été ajouté au panier!");
-
+        const ajoutProduitLocalStorage =() => {
+                productPanier.push(product);
+                localStorage.setItem("productPanier", JSON.stringify(productPanier));
+        };
         if(productPanier){
-            productPanier.push(product);
-            localStorage.setItem("productPanier", JSON.stringify(productPanier));
+            ajoutProduitLocalStorage();
         }
         else{ 
             productPanier = []
-            productPanier.push(product);
-            localStorage.setItem("productPanier", JSON.stringify(productPanier));  
+            ajoutProduitLocalStorage(); 
         }
-    
-        console.log(productPanier);
     })
 }; 
 
