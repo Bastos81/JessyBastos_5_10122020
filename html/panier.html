@@ -48,9 +48,9 @@
 <!--Contenue de la page-->
 
   <section class="container">
-    <h1>Finalisation de votre commande</h1>
-    <h2>Votre panier</h2>
-    <table class="table table-hover text-center">
+    <h1 class="mt-4">Finalisation de votre commande</h1>
+    <h2 class="mt-4">Votre panier</h2>
+    <table class="mt-4 table table-hover text-center">
         <thead class="thead-dark">
             <tr> <!-- En-tête du tableau -->
                 <th scope="col">Appareil photo</th>
@@ -74,79 +74,82 @@
     </table>
 
     
-    <form>
+    <form class="mt-4 needs-validation" novalidate>
       <h2>Vos coordonnées</h2>
       <p><em>Tous les champs sont obligatoires</em></p>
-      <div class="form-row">
+      <div class="form-row mt-4">
         <div class="col-md-6 mb-3">
-          <label for="validationServer01">Prénom</label>
-          <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Prénom" required>
-          <div class="valid-feedback">
-            Looks good!
+          <label for="form-prénom">Prénom</label>
+          <input type="text" class="form-control" id="form-prénom" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+" placeholder="Prénom" required>
+          <div class="invalid-feedback">
+            Les chiffres ou caractères spéciaux ne sont pas acceptés. 
           </div>
         </div>
         <div class="col-md-6 mb-3">
-          <label for="validationServer02">Nom</label>
-          <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Nom" required>
-          <div class="valid-feedback">
-            Looks good!
+          <label for="form-nom">Nom</label>
+          <input type="text" class="form-control" id="form-nom" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+" placeholder="Nom" required>
+          <div class="invalid-feedback">
+            Les chiffres ou caractères spéciaux ne sont pas acceptés. 
+          </div>
+        </div>
+        <div class="invalid-feedback">
+          Les chiffres ou caractères spéciaux ne sont pas acceptés. 
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="form-adresse">Adresse</label>
+          <input type="text" class="form-control" id="form-adresse" placeholder="Adresse" required>
+          <div class="invalid-feedback">
+            Ex : 12 rue de la gloire.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="form-ville">Ville</label>
+          <input type="text" class="form-control" id="form-ville" pattern="[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]+" placeholder="Ville" required>
+          <div class="invalid-feedback">
+            Les chiffres ou caractères spéciaux ne sont pas acceptés. 
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="form-codepostal">Code Postal</label>
+          <input type="text" class="form-control" id="form-codepostal" pattern="[0-9]{5}" placeholder="ex : 81100" required>
+          <div class="invalid-feedback">
+            Merci de renseigner un code postal valide. <br>
+            Ex : 81100
           </div>
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label for="validationServer03">Adresse</label>
-          <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Adresse" required>
+          <label for="form-email">Adresse e-mail</label>
+          <input type="email" class="form-control" id="form-email" pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" placeholder="Adresse e-mail" required>
           <div class="invalid-feedback">
-            Please provide a valid city.
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="validationServer04">Ville</label>
-          <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="Ville" required>
-          <div class="invalid-feedback">
-            Please provide a valid state.
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="validationServer05">Code Postal</label>
-          <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="Code Postal" required>
-          <div class="invalid-feedback">
-            Please provide a valid zip.
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="validationServerEmail">Adresse e-mail</label>
-          <input type="email" class="form-control is-valid" id="validationServerEmail" placeholder="Adresse e-mail" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-          <div class="invalid-feedback">
-            Please provide a valid state.
+            Merci de renseigner une adresse e-mail valide. <br>
+            Ex : exemple@gmail.com
           </div>
         </div>
         <div class="col-md-6 mb-3">
-          <label for="validationServer06">Numéro de téléphone</label>
-          <input type="tel" class="form-control is-invalid" id="validationServer06" placeholder="Numéro de téléphone" required>
+          <label for="form-tel">Numéro de téléphone</label>
+          <input type="tel" class="form-control" id="form-tel" pattern="(01|02|03|04|05|06|07|08|09)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}" placeholder="Numéro de téléphone" required>
           <div class="invalid-feedback">
-            Please provide a valid city.
+            Merci de renseigner un numéro de téléphone valide. <br>
+            Ex : 0601020304
           </div>
         </div>
       </div>
       <div class="form-group">
         <div class="form-check">
-          <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-          <label class="form-check-label" for="invalidCheck3">
-            Agree to terms and conditions
+          <input class="form-check-input" type="checkbox" value="" id="form-check" required>
+          <label class="form-check-label" for="form-check">
+            Accepter les termes et les conditions
           </label>
           <div class="invalid-feedback">
-            You must agree before submitting.
+            Vous devez accepter pour continuer.
           </div>
         </div>
       </div>
-      <button class="btn btn-primary" type="submit">Submit form</button>
+      <button id="contact-form-btn" class="btn btn-dark" type="submit">Passer la commande</button>
     </form>
   </section>
   

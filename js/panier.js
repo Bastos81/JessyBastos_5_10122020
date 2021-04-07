@@ -61,9 +61,7 @@ function deleteCamera() {
     for (let k = 0; k < bouttonsSupprimer.length; k++){
         bouttonsSupprimer[k].addEventListener("click" , (event) =>{
             event.preventDefault();
-            let tr = bouttonsSupprimer[k].parentElement;
             let idSupressionSelector = productPanier[k].idCamera + ":" + productPanier[k].resultsLensesChoice;
-            let lenseSupressionSelector = productPanier[k].resultsLensesChoice;
             productPanier = productPanier.filter(
                 (el) => el.idCamera + ":" + el.resultsLensesChoice !== idSupressionSelector
             );
@@ -75,3 +73,22 @@ function deleteCamera() {
 }
 
 deleteCamera();
+
+
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
