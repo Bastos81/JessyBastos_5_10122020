@@ -57,6 +57,8 @@ const showChoosenCameras = async() => {
         </div>
     `
     ); 
+
+    
     // Affichage des lenses
     const resultsLenses = document.getElementById("cameraLenses");
     numberLenses = choosenCamera.lenses;
@@ -65,12 +67,22 @@ const showChoosenCameras = async() => {
         resultsLenses.appendChild(optionLens);
         optionLens.textContent = choosenCamera.lenses[i];
     }
-    
+
+    // Vérification de la contenance du panier pour changement de couleur logo
+    let productPanier = JSON.parse(localStorage.getItem("productPanier"));
+    if (productPanier === null) {
+        panierLogo.classList.remove("text-warning");
+      } else if (productPanier.length === 0) {
+        panierLogo.classList.remove("text-warning");
+      } else {  
+        panierLogo.classList.add("text-warning");
+    };
+
     // Ajout des articles au panier
     const envoyerPanier = document.getElementById("button-panier");
 
     envoyerPanier.addEventListener('click', (event) => {event.preventDefault();
-        let productPanier = JSON.parse(localStorage.getItem("productPanier"));
+       
         // identification des éléments
         let idCamera = choosenCamera._id;
         let nameCamera = choosenCamera.name;
@@ -86,12 +98,14 @@ const showChoosenCameras = async() => {
             productPanier.push(product);
             localStorage.setItem("productPanier", JSON.stringify(productPanier));
             window.alert("Le produit a bien été ajouté au panier!");
+            window.location.reload();
         }
         // Si le panier a été vidé
-        else if(productPanier === 0){
+        else if(productPanier.length === 0){
             productPanier.push(product);
             localStorage.setItem("productPanier", JSON.stringify(productPanier));
             window.alert("Le produit a bien été ajouté au panier!");
+            window.location.reload();
         }
         // Si le panier n'est pas vide
         else {
@@ -115,11 +129,11 @@ const showChoosenCameras = async() => {
                 productPanier.push(product);
                 localStorage.setItem("productPanier", JSON.stringify(productPanier));
                 window.alert("Le produit a bien été ajouté au panier!");
+                window.location.reload();
             }
             // Si le produit que l'on souhaite ajouter est déjà dans le panier
             else{
             calculTotalQuantity.push(filteredProductQuantity);
-            console.log(calculTotalQuantity);
             const reducer = (accumulator, currentValue) => accumulator + currentValue;
             const quantityTotal = calculTotalQuantity.reduce(reducer);
             product.quantityCamera = quantityTotal;
@@ -132,6 +146,7 @@ const showChoosenCameras = async() => {
             localStorage.setItem("productPanier", JSON.stringify(productPanier));
             let quantityAlert = "Vous en avez maintenant " + quantityTotal + " dans le panier!"
             window.alert(quantityAlert);
+            window.location.reload();
             }   
         }   
     })

@@ -25,6 +25,16 @@ const showCameras = async() => {
             `
         )).join('')
     );
+    
+    // Vérification de la contenance du panier pour changement de couleur logo
+    let productPanier = JSON.parse(localStorage.getItem("productPanier"));
+    if (productPanier === null) {
+        panierLogo.classList.remove("text-warning");
+      } else if (productPanier.length === 0) {
+        panierLogo.classList.remove("text-warning");
+      } else {  
+        panierLogo.classList.add("text-warning");
+    };
 }; 
 
 showCameras();

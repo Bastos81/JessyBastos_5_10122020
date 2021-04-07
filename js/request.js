@@ -1,5 +1,6 @@
 const searchInput = document.getElementById("search");
 const results = document.getElementById("productList");
+const panierLogo = document.getElementById("link-panier");
 
 let searchTerm = '';
 let cameras;
