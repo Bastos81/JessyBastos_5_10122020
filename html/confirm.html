@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Site e-commerce de vente de caméras vintage par Orinoco">
-  <title>Orinoco - Panier</title>
+  <title>Orinoco - Confirmation de commande</title>
   <script src="https://kit.fontawesome.com/a430ebc583.js" crossorigin="anonymous"></script>
 <!--Bootstrap css-->
     
@@ -47,85 +47,11 @@
 
 <!--Contenue de la page-->
 
-  <section class="container">
-    <h1 class="mt-4">Finalisation de votre commande</h1>
-    <h2 class="mt-4">Votre panier</h2>
-    <table class="mt-4 table table-hover text-center">
-        <thead class="thead-dark">
-            <tr> <!-- En-tête du tableau -->
-                <th scope="col">Appareil photo</th>
-                <th scope="col">Objectif</th>
-                <th scope="col">Prix / unité</th>
-                <th scope="col">Quantité</th>
-                <th scope="col">Prix / total</th>
-                <th scope="col">Supprimer</th>
-            </tr>
-        </thead>
-        <tfoot class="thead-dark"> <!-- Pied de tableau -->
-            <tr>
-                <th scope="row">Total de votre commande</th>
-                <td id="total-commande" class="font-weight-bolder" colspan="5"><!-- Script JS--></td>
-            </tr>
-        </tfoot>
-        <tbody id="productList"> <!-- Corps du tableau -->
-            <!-- Script JS-->
-            
-        </tbody>
-    </table>
-
-    
-    <form class="mt-4 needs-validation" autocomplete="false" novalidate>
-      <h2>Vos coordonnées</h2>
-      <p><em>Tous les champs sont obligatoires</em></p>
-      <div class="form-row mt-4">
-        <div class="col-md-6 mb-3">
-          <label for="form-prenom">Prénom</label>
-          <input type="text" class="form-control" id="form-prenom" pattern="^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$" placeholder="Prénom" required>
-          <div class="invalid-feedback">
-            Les chiffres ou caractères spéciaux ne sont pas acceptés. <br>
-            Vous devez insérer entre 3 et 20 caractères.
-          </div>
-        </div>
-        <div class="col-md-6 mb-3">
-          <label for="form-nom">Nom</label>
-          <input type="text" class="form-control" id="form-nom" pattern="^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$" placeholder="Nom" required>
-          <div class="invalid-feedback">
-            Les chiffres ou caractères spéciaux ne sont pas acceptés. <br>
-            Vous devez insérer entre 3 et 20 caractères.
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="form-adresse">Adresse</label>
-          <input type="text" class="form-control" id="form-adresse" pattern="^[a-zA-Z0-9\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$" placeholder="Adresse" required>
-          <div class="invalid-feedback">
-            Ex : 12 rue de la gloire. <br>
-            Vous devez insérer entre 3 et 40 caractères.
-          </div>
-        </div>
-        <div class="col-md-6 mb-3">
-          <label for="form-ville">Ville</label>
-          <input type="text" class="form-control" id="form-ville" pattern="^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$" placeholder="Ville" required>
-          <div class="invalid-feedback">
-            Les chiffres ou caractères spéciaux ne sont pas acceptés. <br>
-            Vous devez insérer entre 3 et 20 caractères.
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="form-email">Adresse e-mail</label>
-          <input type="email" class="form-control" id="form-email" pattern="^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$" placeholder="Adresse e-mail" required>
-          <div class="invalid-feedback">
-            Merci de renseigner une adresse e-mail valide. <br>
-            Ex : exemple@gmail.com
-          </div>
-        </div>
-      </div>
-      <button id="contact-form-btn" class="btn btn-dark" type="submit">Passer la commande</button>
-    </form>
-  </section>
+<section class="container">
+    <div class="row" id="productList">
+      <!-- Script JS Confirmation de commande-->
+    </div>
+</section>
   
 <!--Footer-->
 
@@ -166,6 +92,6 @@
 
 <!--Fichier js-->
     <script src="../js/function.js"></script>
-    <script src="../js/panier.js"></script>
+    <script src="../js/confirm.js"></script>
 </body>
 </html>

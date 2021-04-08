@@ -1,14 +1,14 @@
-@mixin camera-item{
+@mixin card{
     transition: all 250ms ease-in-out;
     text-align: center;
     &:hover{
         opacity: 0.9;
     }
-    .camera-name{
+    &-title{
         font-size: 1.4rem;
         font-weight: 700;
     }
-    .camera-description{
+    &-text{
         font-size: 1rem;
     }
     .camera-prix{

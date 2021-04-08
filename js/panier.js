@@ -4,11 +4,14 @@ const bouttonValiderForm = document.getElementById("contact-form-btn");
 colorPanier ();
 
 //Création du tableau qui va être envoyé au serveur avec les id des caméras
-let idProductPanier = [];
+let products = [];
+
+//Permettra de stocker le prix de la commande
+let prixTotal;
 
 //Ajout des id des articles choisis dans le tableau idProductPanier
 function addIdProducts(productPanier) {
-    idProductPanier.push(productPanier[j].idCamera);
+    products.push(productPanier[j].idCamera);
 }
 
 //------------------------------PANIER------------------------------//
@@ -49,7 +52,7 @@ async function getPanier() {
             calculTotalPanier.push(tableauPrixPanier);
         }
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        const prixTotal = calculTotalPanier.reduce(reducer);
+        prixTotal = calculTotalPanier.reduce(reducer);
         resultsTotalCommande.innerHTML = (
             ` 
             ${prixTotal + ",00 €"}
@@ -109,61 +112,92 @@ function getForm() {
     contact = new ContactData(firstName, lastName, address, city, email);
 }
 
+//Fonction de validation du formulaire qui ne sera appelé qu'au submit
 function ValidationElementsForm() {
-    if(/^[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(contact.firstName)){
-        console.log("ok");
-        if(/^[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(contact.lastName)){
-            console.log("ok");
-            if(/^[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$/.test(contact.address)){
-                console.log("ok");
-                if(/^[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(contact.city)){
-                    console.log("ok");
-                    if(/^[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(contact.email)){
-                        console.log("ok");
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName("needs-validation");
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.classList.add("was-validated");
+    });
+    if(/^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(contact.firstName)){
+        console.log("ok prénom");
+        if(/^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(contact.lastName)){
+            console.log("ok nom");
+            if(/^[a-zA-Z0-9\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$/.test(contact.address)){
+                console.log("ok adress");
+                if(/^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(contact.city)){
+                    console.log("ok city");
+                    if(/^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(contact.email)){
+                        console.log("ok email");
                         return true;
                     } else {
-                        console.log("not ok");
+                        console.log("not ok email");
                         return false;
                     }
-                }
                 } else {
-                    console.log("not ok");
                     return false;
                 }
-            }
             } else {
-                console.log("not ok");
                 return false;
             }
-        }
         } else {
-            console.log("not ok");
             return false;
         }
-    }
     } else {
-        console.log("not ok");
         return false;
     }
 }
 
+//Requête POST pour envoyer l'objet Contact et le tableau products à l'API
+async function postForm(dataToSend) {
+    try {
+        let response = await fetch("http://localhost:3000/api/cameras/order", {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: dataToSend,
+        });
+        if (response.ok) {
+            let responseId = await response.json();
+            getOrderConfirmationId(responseId);
+            document.location.href = "../html/confirm.html"
+        } else {
+            console.error('Retour du serveur : ', response.status);
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
 
+//Récupération de l'id de commande renvoyée par l'API et stockage dans le localStorage
+function getOrderConfirmationId(responseId) {
+    let orderId = responseId.orderId;
+    console.log(orderId);
+    localStorage.setItem("orderConfirmationId", orderId);
+}
 
+//Validation de la commande et envoie de l'objet contact et du tableau product à l'API
+function confirmationOrder() {
+    getForm();
+    dataToSend = JSON.stringify({ contact, products });
+    console.log(dataToSend);
+    postForm(dataToSend);
+}
 
-//-------------------------
+//Validation du formulaire
 function validateForm() {
     bouttonValiderForm.addEventListener('click', (event) => {event.preventDefault();
-        getForm();
         if(ValidationElementsForm()){
-            console.log("ok");
+            localStorage.setItem("montantCommande", JSON.stringify(prixTotal));
+            confirmationOrder()
+            console.log("ok form");
         } else {
-            console.log("not ok");
+            console.log("not ok form");
         }
-    }
-
-        localStorage.setItem("contact", JSON.stringify(contact));
-        localStorage.setItem("product_id", JSON.stringify(idProductPanier));
     })
 }
+
 
 validateForm();

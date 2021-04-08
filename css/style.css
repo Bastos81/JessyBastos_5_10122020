@@ -7,24 +7,24 @@
 /*# Vendors */
 /*# Base */
 /*# Components */
-.camera-item {
+.card {
   transition: all 250ms ease-in-out;
   text-align: center;
 }
-.camera-item:hover {
+.card:hover {
   opacity: 0.9;
 }
-.camera-item .camera-name {
+.card-title {
   font-size: 1.4rem;
   font-weight: 700;
 }
-.camera-item .camera-description {
+.card-text {
   font-size: 1rem;
 }
-.camera-item .camera-prix {
+.card .camera-prix {
   font-size: 1.2rem;
 }
-.camera-item .camera-btn {
+.card .camera-btn {
   width: 100%;
 }
 
