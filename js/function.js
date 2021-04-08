@@ -1,13 +1,14 @@
 const searchInput = document.getElementById("search");
 const results = document.getElementById("productList");
 const panierLogo = document.getElementById("link-panier");
-
+let productPanier = JSON.parse(localStorage.getItem("productPanier"));
+let product;
 let searchTerm = '';
 let cameras;
 
 // Consultation de l'API
 const getCameras = async() => {
-	cameras = await fetch("http://localhost:3000/api/cameras")
+	cameras = await fetch("https://ab-p5-api.herokuapp.com/api/cameras")
     .then(res => res.json())
     .catch((error) => {
         errorMessage
@@ -36,4 +37,21 @@ const errorMessage =
 // Permet de mettre un écart entre les chiffres
 function numberWithCommas(x){
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
+// Vérification de la contenance du panier pour changement de couleur logo
+function colorPanier() {
+  if (productPanier === null) {
+      panierLogo.classList.remove("text-warning");
+    } else if (productPanier.length === 0) {
+      panierLogo.classList.remove("text-warning");
+    } else {  
+      panierLogo.classList.add("text-warning");
+  };
+}
+
+// Envoi de la fiche produit dans le localstorage
+function productToLocalstorage() {
+  productPanier.push(product);
+  localStorage.setItem("productPanier", JSON.stringify(productPanier));
 }

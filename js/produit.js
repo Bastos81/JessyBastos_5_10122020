@@ -1,3 +1,4 @@
+// Permet de récupérer l'id du produit dans l'url
 const cameraUrl_string = window.location.href;
 const cameraUrl = new URL(cameraUrl_string);
 const cameraUrlSpace = cameraUrl.searchParams.get("id");
@@ -58,7 +59,6 @@ const showChoosenCameras = async() => {
     `
     ); 
 
-    
     // Affichage des lenses
     const resultsLenses = document.getElementById("cameraLenses");
     numberLenses = choosenCamera.lenses;
@@ -69,14 +69,7 @@ const showChoosenCameras = async() => {
     }
 
     // Vérification de la contenance du panier pour changement de couleur logo
-    let productPanier = JSON.parse(localStorage.getItem("productPanier"));
-    if (productPanier === null) {
-        panierLogo.classList.remove("text-warning");
-      } else if (productPanier.length === 0) {
-        panierLogo.classList.remove("text-warning");
-      } else {  
-        panierLogo.classList.add("text-warning");
-    };
+    colorPanier ();
 
     // Ajout des articles au panier
     const envoyerPanier = document.getElementById("button-panier");
@@ -91,20 +84,18 @@ const showChoosenCameras = async() => {
         let priceCamera = numberWithCommas(choosenCamera.price/100 + ",00 €");
         let totalPriceCamera = choosenCamera.price/100*quantityCamera;
         // Création du produit
-        let product = new CameraSelected (idCamera, nameCamera, resultsLensesChoice, quantityCamera, priceCamera, totalPriceCamera);
+        product = new CameraSelected (idCamera, nameCamera, resultsLensesChoice, quantityCamera, priceCamera, totalPriceCamera);
         // Si le panier est vide
         if(productPanier === null){
             productPanier = []
-            productPanier.push(product);
-            localStorage.setItem("productPanier", JSON.stringify(productPanier));
-            window.alert("Le produit a bien été ajouté au panier!");
+            productToLocalstorage();
+            alert("Le produit a bien été ajouté au panier!");
             window.location.reload();
         }
         // Si le panier a été vidé
         else if(productPanier.length === 0){
-            productPanier.push(product);
-            localStorage.setItem("productPanier", JSON.stringify(productPanier));
-            window.alert("Le produit a bien été ajouté au panier!");
+            productToLocalstorage();
+            alert("Le produit a bien été ajouté au panier!");
             window.location.reload();
         }
         // Si le panier n'est pas vide
@@ -126,9 +117,8 @@ const showChoosenCameras = async() => {
                 oldProduct = filteredProduct[q].idCamera + ":" + filteredProduct[q].resultsLensesChoice + filteredProduct[q].quantityCamera;};
             // Si le produit que l'on souhaite ajouter n'est pas dans le panier
             if(productRef !== filteredProductRef){
-                productPanier.push(product);
-                localStorage.setItem("productPanier", JSON.stringify(productPanier));
-                window.alert("Le produit a bien été ajouté au panier!");
+                productToLocalstorage();
+                alert("Le produit a bien été ajouté au panier!");
                 window.location.reload();
             }
             // Si le produit que l'on souhaite ajouter est déjà dans le panier
@@ -138,14 +128,13 @@ const showChoosenCameras = async() => {
             const quantityTotal = calculTotalQuantity.reduce(reducer);
             product.quantityCamera = quantityTotal;
             product.totalPriceCamera = choosenCamera.price/100*quantityTotal;
-            productPanier.push(product);
-            localStorage.setItem("productPanier", JSON.stringify(productPanier));
+            productToLocalstorage();
             productPanier = productPanier.filter(
                 (el) => el.idCamera + ":" + el.resultsLensesChoice + el.quantityCamera !== oldProduct
             );
             localStorage.setItem("productPanier", JSON.stringify(productPanier));
             let quantityAlert = "Vous en avez maintenant " + quantityTotal + " dans le panier!"
-            window.alert(quantityAlert);
+            alert(quantityAlert);
             window.location.reload();
             }   
         }   
