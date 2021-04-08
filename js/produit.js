@@ -16,6 +16,9 @@ class CameraSelected {
     }
 }
 
+// Vérification de la contenance du panier pour changement de couleur logo
+colorPanier ();
+
 // Affichage de la caméra en fonction de l'Url
 const showChoosenCameras = async() => {
 	await getCameras();
@@ -68,14 +71,9 @@ const showChoosenCameras = async() => {
         optionLens.textContent = choosenCamera.lenses[i];
     }
 
-    // Vérification de la contenance du panier pour changement de couleur logo
-    colorPanier ();
-
     // Ajout des articles au panier
     const envoyerPanier = document.getElementById("button-panier");
-
     envoyerPanier.addEventListener('click', (event) => {event.preventDefault();
-       
         // identification des éléments
         let idCamera = choosenCamera._id;
         let nameCamera = choosenCamera.name;

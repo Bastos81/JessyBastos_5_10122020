@@ -1,3 +1,6 @@
+// Vérification de la contenance du panier pour changement de couleur logo
+colorPanier ();
+
 // Création des map produit
 const showCameras = async() => {
 	await getCameras();
@@ -25,8 +28,6 @@ const showCameras = async() => {
             `
         )).join('')
     );
-    // Vérification de la contenance du panier pour changement de couleur logo
-    colorPanier ();
 }; 
 
 showCameras();

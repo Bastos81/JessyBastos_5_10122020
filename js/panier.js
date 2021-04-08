@@ -15,6 +15,9 @@ class ContactData {
     }
 }
 
+// Vérification de la contenance du panier pour changement de couleur logo
+colorPanier ();
+
 // Création du panier
 async function getPanier() {
     if (productPanier === null || productPanier == 0) {
@@ -75,7 +78,7 @@ function deleteCamera() {
             );
             localStorage.setItem("productPanier", JSON.stringify(productPanier));
             alert("Le produit a bien été supprimer du panier")
-            window.location.href = "../html/panier.html";
+            window.location.reload();
             })
         }
 }
