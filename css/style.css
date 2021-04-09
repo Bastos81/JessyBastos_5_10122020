@@ -6,6 +6,10 @@
 /*# Placeholders */
 /*# Vendors */
 /*# Base */
+.hidden {
+  display: none !important;
+}
+
 @media (min-width: 481px) and (max-width: 992px) {
   .page-titre {
     font-size: 1.8rem;
@@ -60,6 +64,23 @@ header div nav a img {
 }
 .navbar-nav a:hover {
   color: orange !important;
+}
+
+.header--cart {
+  position: relative;
+}
+.header--cart--counter {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: grey;
+  font-weight: 700;
 }
 
 .footer--social svg {

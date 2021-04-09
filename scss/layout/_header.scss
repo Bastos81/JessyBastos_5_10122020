@@ -15,3 +15,22 @@ header{
         color: $colour-primary!important;  
     }
 }
+
+.header{
+    &--cart {
+        position: relative;
+        &--counter {
+            position: absolute;
+            top: -5px;
+            right: 0px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: grey;
+            font-weight: 700;
+        }
+    } 
+}

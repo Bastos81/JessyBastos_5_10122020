@@ -53,7 +53,6 @@ async function getPanier() {
             let tableauPrixPanier = productPanier[p].totalPriceCamera;
             calculTotalPanier.push(tableauPrixPanier);
         }
-        const reducer = (accumulator, currentValue) => accumulator + currentValue;
         prixTotal = calculTotalPanier.reduce(reducer);
         resultsTotalCommande.innerHTML = (
             ` 

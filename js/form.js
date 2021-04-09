@@ -100,6 +100,7 @@ function getOrderConfirmationId(responseId) {
     sessionStorage.setItem("orderConfirmationId", orderId);
     sessionStorage.setItem("montantCommande", JSON.stringify(prixTotal));
     sessionStorage.setItem("contact", JSON.stringify(contact));
+    sessionStorage.setItem("productCommande", JSON.stringify(productPanier));
 }
 
 //Validation de la commande et envoie de l'objet contact et du tableau product à l'API

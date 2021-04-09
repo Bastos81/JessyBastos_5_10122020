@@ -83,7 +83,7 @@ const showChoosenCameras = async() => {
         let totalPriceCamera = choosenCamera.price/100*quantityCamera;
         // Création du produit
         product = new CameraSelected (idCamera, nameCamera, resultsLensesChoice, quantityCamera, priceCamera, totalPriceCamera);
-        // Vérification de la quantité du produit
+        // Vérification de la quantité saisie du produit
         const qttRegex = /^(?:[1-9]|0[1-9]|10)$/;
         if (!qttRegex.test(quantityCamera)) {
             alert("Merci de choisir une quantité entre 1 et 10") ;
@@ -128,7 +128,6 @@ const showChoosenCameras = async() => {
             else{
                 // Vérification que la quantité totale du produit ne dépasse pas 10
                 calculTotalQuantity.push(filteredProductQuantity);
-                const reducer = (accumulator, currentValue) => accumulator + currentValue;
                 const quantityTotal = calculTotalQuantity.reduce(reducer);
                 // si elle dépasse 10
                 if (!qttRegex.test(quantityTotal)) {
