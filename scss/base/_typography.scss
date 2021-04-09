@@ -1,0 +1,17 @@
+.page-titre{
+    @media (min-width: 481px) and (max-width: 992px){
+    font-size: 1.8rem;
+    }
+    @media (max-width: 480px){
+        font-size: 1.4rem;
+        }
+}
+
+.page-sous-titre{
+    @media (min-width: 481px) and (max-width: 992px){
+    font-size: 1.5rem;
+    }
+    @media (max-width: 480px){
+        font-size: 1.1rem;
+        }
+}

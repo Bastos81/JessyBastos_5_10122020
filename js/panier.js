@@ -34,7 +34,7 @@ async function getPanier() {
                 .map(cameraPanier => ( 
                      ` 
                         <tr id="${cameraPanier.idCamera}">
-                            <th scope="row">${cameraPanier.nameCamera}</th>
+                            <td scope="row">${cameraPanier.nameCamera}</td>
                             <td>${cameraPanier.resultsLensesChoice}</td>
                             <td>${cameraPanier.priceCamera}</td>
                             <td>${cameraPanier.quantityCamera}</td>

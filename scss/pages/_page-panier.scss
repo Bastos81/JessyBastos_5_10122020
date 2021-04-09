@@ -1,0 +1,8 @@
+table{
+    @media (min-width: 576px) and (max-width: 992px){
+        font-size: 1rem;
+        }
+    @media (max-width: 575px){
+        font-size: 0.7rem;
+    }
+}

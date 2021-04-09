@@ -52,9 +52,9 @@ const showChoosenCameras = async() => {
                                 <input class="col-sm-9" type="number" name="quantity" id="quantity" min="1" max="10" value="1">
                             </div>
                             <p class=" card-text camera-prix font-weight-bold">${numberWithCommas("Prix :"+ " " + choosenCamera.price/100 + " € / unité")}</p>
-                            <a href="../index.html" class="btn btn-dark col-4">Retour à l'accueil</a>
-                            <button id="button-panier" class="btn btn-dark col-4" type="submit">Ajouter au panier</button>
-                            <a href="../html/panier.html" class="my-3 btn btn-dark col-8">Voir mon panier</a>
+                            <a href="../index.html" class="mt-3 btn btn-dark col-10 col-md-4">Retour à l'accueil</a>
+                            <button id="button-panier" class="mt-3 btn btn-dark col-10 col-md-4" type="submit">Ajouter au panier</button>
+                            <a href="../html/panier.html" class="my-3 btn btn-warning col-10 col-md-8">Voir mon panier</a>
                         </form>
                     </div>
                 </div>

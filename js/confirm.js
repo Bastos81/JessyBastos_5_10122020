@@ -13,8 +13,10 @@ function addConfirmationOrder() {
           <h1 class="card-title confirm-title">${"Merci pour votre commande, " + commandeContact.firstName + " !"}</h1>
         </div>
         <div class="card-body confirm-info">
-          <p class="card-text confirm-montant">${"Montant total de votre commande : " + commandePrixTotal + " €"}</p>
-          <p class="card-text confirm-idcommande">${"Votre numéro de commande : " + orderId}</p>
+          <p class="card-text confirm-montant font-weight-bolder"><u>Montant total de votre commande :</u></p>
+          <p class="card-text confirm-montant font-weight-bolder">${commandePrixTotal + " €"}</p>
+          <p class="card-text confirm-idcommande font-weight-bolder"><u>Votre numéro de commande :</u></p>
+          <p class="card-text confirm-idcommande font-weight-bolder">${orderId}</p>
           <a href="../index.html" class="stretched-link btn btn-dark col-8">Retour à l'accueil</a>
         </div>
       </div>
