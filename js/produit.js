@@ -83,8 +83,13 @@ const showChoosenCameras = async() => {
         let totalPriceCamera = choosenCamera.price/100*quantityCamera;
         // Création du produit
         product = new CameraSelected (idCamera, nameCamera, resultsLensesChoice, quantityCamera, priceCamera, totalPriceCamera);
+        // Vérification de la quantité du produit
+        const qttRegex = /^(?:[1-9]|0[1-9]|10)$/;
+        if (!qttRegex.test(quantityCamera)) {
+            alert("Merci de choisir une quantité entre 1 et 10") ;
+        }
         // Si le panier est vide
-        if(productPanier === null){
+        else if(productPanier === null){
             productPanier = []
             productToLocalstorage();
             alert("Le produit a bien été ajouté au panier!");
@@ -121,19 +126,26 @@ const showChoosenCameras = async() => {
             }
             // Si le produit que l'on souhaite ajouter est déjà dans le panier
             else{
-            calculTotalQuantity.push(filteredProductQuantity);
-            const reducer = (accumulator, currentValue) => accumulator + currentValue;
-            const quantityTotal = calculTotalQuantity.reduce(reducer);
-            product.quantityCamera = quantityTotal;
-            product.totalPriceCamera = choosenCamera.price/100*quantityTotal;
-            productToLocalstorage();
-            productPanier = productPanier.filter(
-                (el) => el.idCamera + ":" + el.resultsLensesChoice + el.quantityCamera !== oldProduct
-            );
-            localStorage.setItem("productPanier", JSON.stringify(productPanier));
-            let quantityAlert = "Vous en avez maintenant " + quantityTotal + " dans le panier!"
-            alert(quantityAlert);
-            window.location.reload();
+                // Vérification que la quantité totale du produit ne dépasse pas 10
+                calculTotalQuantity.push(filteredProductQuantity);
+                const reducer = (accumulator, currentValue) => accumulator + currentValue;
+                const quantityTotal = calculTotalQuantity.reduce(reducer);
+                // si elle dépasse 10
+                if (!qttRegex.test(quantityTotal)) {
+                    alert("Vous ne pouvez pas acheter cet article à plus de 10 exemplaires") ;
+                } else {
+                // si elle ne dépasse pas 10
+                product.quantityCamera = quantityTotal;
+                product.totalPriceCamera = choosenCamera.price/100*quantityTotal;
+                productToLocalstorage();
+                productPanier = productPanier.filter(
+                    (el) => el.idCamera + ":" + el.resultsLensesChoice + el.quantityCamera !== oldProduct
+                );
+                localStorage.setItem("productPanier", JSON.stringify(productPanier));
+                let quantityAlert = "Vous en avez maintenant " + quantityTotal + " dans le panier!"
+                alert(quantityAlert);
+                window.location.reload();
+                }
             }   
         }   
     })

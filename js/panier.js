@@ -19,6 +19,7 @@ function addIdProducts(productPanier) {
 // Création du panier
 async function getPanier() {
     if (productPanier === null || productPanier == 0) {
+        bouttonValiderForm.disabled = true;
         results.innerHTML = 
             ` 
                 <tr>
@@ -26,6 +27,7 @@ async function getPanier() {
                 </tr>
             `;
     } else {
+        bouttonValiderForm.disabled = false;
         for (j = 0; j < productPanier.length; j++) {
             addIdProducts(productPanier);
             results.innerHTML = (
@@ -77,10 +79,16 @@ function deleteCamera() {
                 (el) => el.idCamera + ":" + el.resultsLensesChoice !== idSupressionSelector
             );
             localStorage.setItem("productPanier", JSON.stringify(productPanier));
-            alert("Le produit a bien été supprimer du panier")
-            window.location.reload();
-            })
-        }
+            if (productPanier === null || productPanier == 0) {
+                localStorage.clear();
+                alert("Votre panier est vide")
+                window.location.reload("productPanier");
+            } else {
+                alert("Le produit a bien été supprimer du panier")
+                window.location.reload();
+            }
+        })
+    }
 }
 
 deleteCamera();
