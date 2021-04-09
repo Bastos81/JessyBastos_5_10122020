@@ -31,7 +31,6 @@ function ValidationElementsForm() {
     let verificationAddresse = contact.address;
     let verificationVille = contact.city;
     let verificationEmail = contact.email;
-    console.log(verificationEmail);
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.getElementsByClassName("needs-validation");
     // Loop over them and prevent submission
@@ -39,7 +38,7 @@ function ValidationElementsForm() {
       form.classList.add("was-validated");
     });
     if(/^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(verificationPrenom)){
-        console.log("not ok prénom");
+        console.log("ok prénom");
         if(/^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(verificationNom)){
             console.log("ok nom");
             if(/^[a-zA-Z0-9\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$/.test(verificationAddresse)){
