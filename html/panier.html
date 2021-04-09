@@ -116,7 +116,7 @@
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="form-email">Adresse e-mail</label>
-          <input type="email" class="form-control" id="form-email" pattern="^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$" placeholder="Adresse e-mail" required>
+          <input type="email" class="form-control" id="form-email" pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$" placeholder="Adresse e-mail" required>
           <div class="invalid-feedback">
             Merci de renseigner une adresse e-mail valide. <br>
             Ex : exemple@gmail.com
@@ -167,5 +167,6 @@
 <!--Fichier js-->
     <script src="../js/function.js"></script>
     <script src="../js/panier.js"></script>
+    <script src="../js/form.js"></script>
 </body>
 </html>
