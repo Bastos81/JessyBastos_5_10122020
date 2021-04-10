@@ -31,21 +31,22 @@ function ValidationElementsForm() {
     let verificationAddresse = contact.address;
     let verificationVille = contact.city;
     let verificationEmail = contact.email;
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    // Récupération de tous les formulaires auxquels nous voulons appliquer des styles de validation Bootstrap personnalisés
     var forms = document.getElementsByClassName("needs-validation");
-    // Loop over them and prevent submission
+    // Boucle empêchant la soumission
     var validation = Array.prototype.filter.call(forms, function(form) {
       form.classList.add("was-validated");
     });
-    if(/^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(verificationPrenom)){
+    // Vérification du formulaire via les regex
+    if(formPrenomNomVilleRegex.test(verificationPrenom)){
         console.log("ok prénom");
-        if(/^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(verificationNom)){
+        if(formPrenomNomVilleRegex.test(verificationNom)){
             console.log("ok nom");
-            if(/^[a-zA-Z0-9\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$/.test(verificationAddresse)){
+            if(formAdressRegex.test(verificationAddresse)){
                 console.log("ok adress");
-                if(/^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/.test(verificationVille)){
+                if(formPrenomNomVilleRegex.test(verificationVille)){
                     console.log("ok city");
-                    if(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/.test(verificationEmail) && verificationEmail != ""){
+                    if(formEmailRegex.test(verificationEmail) && verificationEmail != ""){
                         console.log("ok email");
                         return true;
                     } else {

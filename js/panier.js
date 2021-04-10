@@ -1,6 +1,8 @@
+// Déclaration des constantes
 const resultsTotalCommande = document.getElementById("total-commande");
 const bouttonValiderForm = document.getElementById("contact-form-btn");
-// Vérification de la contenance du panier pour changement de couleur logo
+const bouttonSupprimerTout = document.getElementById("btn-supprimer-tout");
+// Vérification de la contenance du panier pour changement de couleur logo et ajout du nombre de produit au panier
 colorPanier ();
 
 //Création du tableau qui va être envoyé au serveur avec les id des caméras
@@ -20,6 +22,7 @@ function addIdProducts(productPanier) {
 async function getPanier() {
     if (productPanier === null || productPanier == 0) {
         bouttonValiderForm.disabled = true;
+        bouttonSupprimerTout.disabled = true;
         results.innerHTML = 
             ` 
                 <tr>
@@ -28,6 +31,7 @@ async function getPanier() {
             `;
     } else {
         bouttonValiderForm.disabled = false;
+        bouttonSupprimerTout.disabled = false;
         for (j = 0; j < productPanier.length; j++) {
             addIdProducts(productPanier);
             results.innerHTML = (
@@ -68,7 +72,7 @@ getPanier();
 
 // Supprimer un article du panier
 
-let bouttonsSupprimer = document.querySelectorAll(".btn-supprimer")
+let bouttonsSupprimer = document.querySelectorAll(".btn-supprimer");
 function deleteCamera() {
     for (let k = 0; k < bouttonsSupprimer.length; k++){
         bouttonsSupprimer[k].addEventListener("click" , (event) =>{
@@ -80,14 +84,26 @@ function deleteCamera() {
             localStorage.setItem("productPanier", JSON.stringify(productPanier));
             if (productPanier === null || productPanier == 0) {
                 localStorage.clear();
-                alert("Votre panier est vide")
-                window.location.reload("productPanier");
+                alert("Votre panier est vide");
+                window.location.reload();
             } else {
-                alert("Le produit a bien été supprimer du panier")
+                alert("Le produit a bien été supprimer du panier");
                 window.location.reload();
             }
         })
     }
 }
-
 deleteCamera();
+
+// Supprimer l'ensemble du panier
+
+
+function deleteAllCameras() {
+    bouttonSupprimerTout.addEventListener("click" , (event) =>{
+        event.preventDefault();
+        localStorage.clear();
+        window.confirm("Votre panier est vide");
+        window.location.reload();
+    })
+}
+deleteAllCameras();

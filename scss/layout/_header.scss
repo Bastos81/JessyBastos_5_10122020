@@ -2,6 +2,7 @@ header{
     & div{
         & nav{
             & a{
+                // Logo
                 & img{
                     width: 200px;
                 }
@@ -9,6 +10,8 @@ header{
         }
     }
 }
+
+// Alignement des éléments de la navbar
 .navbar-nav{
     align-items: center;
     & a:hover{
@@ -16,6 +19,7 @@ header{
     }
 }
 
+// Emplacement de l'affichage ou non de la bulle contenant le nombre de produit dans le panier
 .header{
     &--cart {
         position: relative;

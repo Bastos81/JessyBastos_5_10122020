@@ -1,5 +1,8 @@
 // Confirmation de la commande
 
+// Vérification de la contenance du panier pour changement de couleur logo et ajout du nombre de produit au panier
+colorPanier ();
+
 function addConfirmationOrder() {
     // Récupération des éléments stockés dans le sessionStorage
     let commandeContact = JSON.parse(sessionStorage.getItem('contact'));

@@ -1,4 +1,4 @@
-// Vérification de la contenance du panier pour changement de couleur logo
+// Vérification de la contenance du panier pour changement de couleur logo et ajout du nombre de produit au panier
 colorPanier ();
 
 // Création des map produit

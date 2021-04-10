@@ -16,7 +16,7 @@ class CameraSelected {
     }
 }
 
-// Vérification de la contenance du panier pour changement de couleur logo
+// Vérification de la contenance du panier pour changement de couleur logo et ajout du nombre de produit au panier
 colorPanier ();
 
 // Affichage de la caméra en fonction de l'Url
@@ -84,8 +84,8 @@ const showChoosenCameras = async() => {
         // Création du produit
         product = new CameraSelected (idCamera, nameCamera, resultsLensesChoice, quantityCamera, priceCamera, totalPriceCamera);
         // Vérification de la quantité saisie du produit
-        const qttRegex = /^(?:[1-9]|0[1-9]|10)$/;
-        if (!qttRegex.test(quantityCamera)) {
+        const quantityProductRegex = /^(?:[1-9]|0[1-9]|10)$/;
+        if (!quantityProductRegex.test(quantityCamera)) {
             alert("Merci de choisir une quantité entre 1 et 10") ;
         }
         // Si le panier est vide
@@ -107,6 +107,7 @@ const showChoosenCameras = async() => {
             let calculTotalQuantity= []; 
             calculTotalQuantity.push(quantityCamera);
             let productRef = choosenCamera._id + ":" + document.getElementById('cameraLenses').value;
+            // Déclaration du filtre pour repérer la présence d'un article identique dans le panier
             const filteredProduct = productPanier.filter(
             (el) => el.idCamera + ":" + el.resultsLensesChoice === productRef
             );
@@ -130,7 +131,7 @@ const showChoosenCameras = async() => {
                 calculTotalQuantity.push(filteredProductQuantity);
                 const quantityTotal = calculTotalQuantity.reduce(reducer);
                 // si elle dépasse 10
-                if (!qttRegex.test(quantityTotal)) {
+                if (!quantityProductRegex.test(quantityTotal)) {
                     alert("Vous ne pouvez pas acheter cet article à plus de 10 exemplaires") ;
                 } else {
                 // si elle ne dépasse pas 10

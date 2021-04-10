@@ -1,3 +1,4 @@
+// Déclaration des constantes et des variables
 const searchInput = document.getElementById("search");
 const results = document.getElementById("productList");
 const panierLogo = document.getElementById("link-panier");
@@ -6,6 +7,11 @@ let product;
 let searchTerm = '';
 let cameras;
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// Déclaration des Regex utilisés dans les dormulaires
+const formPrenomNomVilleRegex = /^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/;
+const formAdressRegex = /^[a-zA-Z0-9\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$/;
+const formEmailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/;
 
 // Consultation de l'API
 const getCameras = async() => {
@@ -35,7 +41,7 @@ function errorMessage() {
 };
 
 
-// Permet de mettre un écart entre les chiffres
+// Permet de mettre un écart entre les chiffres "ex : 1 000"
 function numberWithCommas(x){
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 }
@@ -43,7 +49,7 @@ function numberWithCommas(x){
 // Vérification de la contenance du panier pour changement de couleur logo et ajout du nombre de produit au panier
 let calculTotalQuantityPanier= [];
 let panierProductQuantity; 
-let quantityTotal;
+let quantityTotalDansPanier;
 function colorPanier() {
   const targetDiv = document.querySelector(".header--cart--counter");
   if (productPanier === null) {
@@ -59,10 +65,10 @@ function colorPanier() {
         panierProductQuantity = productPanier[n].quantityCamera;
         calculTotalQuantityPanier.push(panierProductQuantity);
       }
-      quantityTotal = calculTotalQuantityPanier.reduce(reducer);
+      quantityTotalDansPanier = calculTotalQuantityPanier.reduce(reducer);
       panierLogo.classList.add("text-warning");
       targetDiv.classList.remove("hidden");
-      targetDiv.textContent = quantityTotal;
+      targetDiv.textContent = quantityTotalDansPanier;
     };
 }
 

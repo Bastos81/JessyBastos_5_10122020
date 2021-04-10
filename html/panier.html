@@ -50,6 +50,8 @@
 
 <!--Contenue de la page-->
 
+  <!--Panier-->
+
   <section class="container">
     <h1 class="page-titre mt-4">Finalisation de votre commande</h1>
     <h2 class="page-sous-titre mt-4">Votre panier</h2>
@@ -67,15 +69,17 @@
         <tfoot class="thead-dark"> <!-- Pied de tableau -->
             <tr>
                 <th scope="row">Total de votre commande</th>
-                <td id="total-commande" class="font-weight-bolder" colspan="5"><!-- Script JS--></td>
+                <td id="total-commande" class="font-weight-bolder" colspan="4"><!-- Script JS--></td>
+                <td><button id="btn-supprimer-tout" class="btn btn-warning class font-weight-bolder">Vider le panier <i class="fas fa-trash-alt"></i></button></td>
             </tr>
         </tfoot>
         <tbody id="productList"> <!-- Corps du tableau -->
-            <!-- Script JS-->
+            <!-- Script JS -- Création des éléments du panier-->
             
         </tbody>
     </table>
 
+    <!--Formulaire-->
     
     <form class="mt-4 needs-validation" novalidate>
       <h2>Vos coordonnées</h2>
