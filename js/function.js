@@ -52,24 +52,19 @@ let panierProductQuantity;
 let quantityTotalDansPanier;
 function colorPanier() {
   const targetDiv = document.querySelector(".header--cart--counter");
-  if (productPanier === null) {
-    panierLogo.classList.remove("text-warning");
-    targetDiv.classList.add("hidden");
-
-  } else if (productPanier.length === 0) {
-    panierLogo.classList.remove("text-warning");
-    targetDiv.classList.add("hidden");
-
-  } else { 
-      for (let n = 0; n < productPanier.length; n++){
+  if (productPanier != null || productPanier > 0) {
+    for (let n = 0; n < productPanier.length; n++){
         panierProductQuantity = productPanier[n].quantityCamera;
         calculTotalQuantityPanier.push(panierProductQuantity);
       }
-      quantityTotalDansPanier = calculTotalQuantityPanier.reduce(reducer);
-      panierLogo.classList.add("text-warning");
-      targetDiv.classList.remove("hidden");
-      targetDiv.textContent = quantityTotalDansPanier;
-    };
+    quantityTotalDansPanier = calculTotalQuantityPanier.reduce(reducer);
+    panierLogo.classList.add("text-warning");
+    targetDiv.classList.remove("hidden");
+    targetDiv.textContent = quantityTotalDansPanier;
+  } else {
+    panierLogo.classList.remove("text-warning");
+    targetDiv.classList.add("hidden");
+  };
 }
 
 // Envoi de la fiche produit dans le localstorage
