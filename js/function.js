@@ -43,7 +43,7 @@ function errorMessage() {
             <div class="card-body error-info">
               <p class="card-text error-description">Nous vous présentons nos excuses pour le désagrément occasionné.</p>
               <p class="card-text error-description">Nos techniciens sont déjà au travail pour régler le problème!</p>
-              <a href="../index.html" class="stretched-link btn btn-dark col-8">Retour à l'accueil</a>
+              <a href="index.html" class="stretched-link btn btn-dark col-8">Actualiser la page</a>
             </div>
           </div>
         </div>
