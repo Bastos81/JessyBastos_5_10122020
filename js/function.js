@@ -8,6 +8,13 @@ let searchTerm = '';
 let cameras;
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
+// Récupération de l'Url d'une page
+const getUrl = window.location.href;
+const getUrlPage = new URL(getUrl);
+const getUrlPagePathname = getUrlPage.pathname;
+// Déclaration de la variable indexUrlPathname pour personnaliser errorMessage
+let indexUrlPathname;
+
 // Déclaration des Regex utilisés dans les dormulaires
 const formPrenomNomVilleRegex = /^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/;
 const formAdressRegex = /^[a-zA-Z0-9\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$/;
@@ -22,22 +29,43 @@ const getCameras = async() => {
     })
 };
 
-//Création d'un message d'erreur
+// Création des messages d'erreur :
 function errorMessage() {
-  results.innerHTML = 
-    ` 
-      <div class="col-12 mt-2">
-        <div class="card mb-4 border-light shadow-lg product-page">
-          <div class="card-header bg-dark text-white">
-            <h1 class="card-title error-title">Oups... Une erreur est survenue</h1>
-          </div>
-          <div class="card-body error-info">
-            <p class="card-text error-description">Nos techniciens sont déjà au travail pour régler le problème!</p>
-            <a href="../index.html" class="stretched-link btn btn-dark col-8">Retour à l'accueil</a>
+  // Index
+  if (getUrlPagePathname === indexUrlPathname){
+    results.innerHTML = 
+      ` 
+        <div class="col-12 mt-2">
+          <div class="card mb-4 border-light shadow-lg product-page">
+            <div class="card-header bg-dark text-white">
+              <h1 class="card-title error-title">Il y a visiblement un problème de connexion à notre site!</h1>
+            </div>
+            <div class="card-body error-info">
+              <p class="card-text error-description">Nous vous présentons nos excuses pour le désagrément occasionné.</p>
+              <p class="card-text error-description">Nos techniciens sont déjà au travail pour régler le problème!</p>
+              <a href="../index.html" class="stretched-link btn btn-dark col-8">Retour à l'accueil</a>
+            </div>
           </div>
         </div>
-      </div>
-    ` ; 
+      ` ; 
+  // Autres
+  } else {
+    results.innerHTML = 
+      ` 
+        <div class="col-12 mt-2">
+          <div class="card mb-4 border-light shadow-lg product-page">
+            <div class="card-header bg-dark text-white">
+              <h1 class="card-title error-title">Oups... Une erreur est survenue</h1>
+            </div>
+            <div class="card-body error-info">
+              <p class="card-text error-description">Nos techniciens sont déjà au travail pour régler le problème!</p>
+              <a href="../index.html" class="stretched-link btn btn-dark col-8">Retour à l'accueil</a>
+            </div>
+          </div>
+        </div>
+      ` ; 
+  }
+  
 };
 
 

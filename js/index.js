@@ -1,6 +1,9 @@
 // Vérification de la contenance du panier pour changement de couleur logo et ajout du nombre de produit au panier
 colorPanier ();
 
+// Permet de récupérer l'url de la page
+indexUrlPathname = getUrlPage.pathname;
+
 // Création des map produit
 const showCameras = async() => {
 	await getCameras();
