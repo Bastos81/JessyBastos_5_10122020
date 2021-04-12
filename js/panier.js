@@ -102,7 +102,7 @@ function deleteAllCameras() {
     bouttonSupprimerTout.addEventListener("click" , (event) =>{
         event.preventDefault();
         localStorage.clear();
-        window.confirm("Votre panier est vide");
+        alert("Votre panier est vide");
         window.location.reload();
     })
 }

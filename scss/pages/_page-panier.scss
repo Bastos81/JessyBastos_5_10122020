@@ -1,9 +1,23 @@
 // Ajustement de la taille du tableau en fonction de l'affichage
 table{
     @media (min-width: 576px) and (max-width: 992px){
-        font-size: 1rem;
+        font-size: 0.9rem;
         }
     @media (max-width: 575px){
-        font-size: 0.7rem;
+        font-size: 0.5rem;
+    }
+}
+
+#btn-supprimer-tout{
+    @media (min-width: 576px) and (max-width: 992px){
+        font-size: 0.9rem;
+        }
+    @media (max-width: 575px){
+        font-size: 0.6rem;
+    }
+    & span{
+        @media (max-width: 770px){
+            display: none;
+        } 
     }
 }

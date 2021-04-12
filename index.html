@@ -62,7 +62,7 @@
   <div class="container">
     <section class="row mb-4">
       <div class="col">          
-        <div id="carouselIndicators" class="carousel carousel-dark slide carousel-fade" data-ride="carousel">
+        <div id="carouselIndicators" class="carousel carousel-dark slide carousel-fade" data-ride="carousel" data-interval="5000">
           <ol class="carousel-indicators">
             <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselIndicators" data-slide-to="1"></li>
@@ -110,10 +110,11 @@
       </div>
     </div>
     <div class="form-group row ml-1" id="trier-par">
-      <select class="col-6 col-lg-2 form-control" id="trier-par-select">
+      <select class="col-6 col-lg-3 form-control" id="trier-par-select">
         <option value="">Trier par :</option>
         <option value="1">Prix croissant</option>
         <option value="2">Prix décroissant</option>
+        <option value="3">Ordre alphabétique</option>
       </select>
   </div>
     <div class="row" id="productList">

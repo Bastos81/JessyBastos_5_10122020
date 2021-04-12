@@ -15,7 +15,7 @@ const getUrlPagePathname = getUrlPage.pathname;
 // Déclaration de la variable indexUrlPathname pour personnaliser errorMessage
 let indexUrlPathname;
 
-// Déclaration des Regex utilisés dans les dormulaires
+// Déclaration des Regex utilisés dans les formulaires
 const formPrenomNomVilleRegex = /^[a-zA-Z\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,20}$/;
 const formAdressRegex = /^[a-zA-Z0-9\sàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ-]{3,40}$/;
 const formEmailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/;

@@ -1,3 +1,11 @@
+// Déclaration des constantes et des variables
+const trierPar = document.getElementById("trier-par-select");
+    // Valeur du tri ( - au + ou + au -)
+let trierParValue;
+    // Nouvel ordre d'affichage en fonction du tri
+let resultDuTri;
+let cameraFiltreIndex;
+
 // Vérification de la contenance du panier pour changement de couleur logo et ajout du nombre de produit au panier
 colorPanier ();
 
@@ -8,8 +16,10 @@ indexUrlPathname = getUrlPage.pathname;
 const showCameras = async() => {
 	await getCameras();
     // Création du filtre de la barre de recheche
-    let cameraFiltreIndex = cameras.filter(camera => camera.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    cameraFiltreIndex = cameras.filter(camera => camera.name.toLowerCase().includes(searchTerm.toLowerCase()));
     let cameraFiltreIndexNombre = cameraFiltreIndex.length;
+    // Vérification de l'ordre d'affichage via l'option de triage
+    trierMap();
     // Si la recherche ne correspond à aucun produit présent dans l'api
     if (cameraFiltreIndexNombre === 0) {
         results.innerHTML = 
@@ -27,6 +37,7 @@ const showCameras = async() => {
         </div>
         ` ; 
     // Affichage des map sans recherche ou si la recherche correspond à un produit présent dans l'api
+    // et avec ou sans l'option de triage
     } else {
         results.innerHTML = (
             cameraFiltreIndex.map(camera => ( 
@@ -52,8 +63,73 @@ const showCameras = async() => {
 
 showCameras();
 
-// Permet de faire une recherche de produit
-searchInput.addEventListener('input', (e) => {searchTerm = e.target.value;
-  showCameras();
-});
+// Fonction permettant de changer l'ordre d'affichage des maps produits
+function trierMap(){
+    // Création d'objet temporaire qui contient les positions
+        // par prix
+    let mappedPrix = cameraFiltreIndex.map(function(e, i) {
+        return { index: i, value: e.price};
+    })
+        // par ordre alphabétique
+    let mappedAlpha = cameraFiltreIndex.map(function(e, i) {
+        return { index: i, value: e.name};
+    })
+    if (trierParValue == "Prix croissant"){
+        mappedPrix.sort(function(a, b) {
+            if (a.value > b.value) {
+                return 1;
+            }
+            if (a.value < b.value) {
+                return -1;
+            }
+            return 0;
+            });
+          
+        // Nouvel ordre d'affichage par prix croissant
+        cameraFiltreIndex = mappedPrix.map(function(e){
+        return cameraFiltreIndex[e.index];
+        });
+    } else if (trierParValue == "Prix décroissant"){
+        mappedPrix.sort(function(a, b) {
+            if (b.value > a.value) {
+                return 1;
+            }
+            if (b.value < a.value) {
+                return -1;
+            }
+            return 0;
+            });
+          
+        // Nouvel ordre d'affichage par prix décroissant
+        cameraFiltreIndex = mappedPrix.map(function(e){
+        return cameraFiltreIndex[e.index];
+        });
+    } else if (trierParValue == "Ordre alphabétique"){
+        mappedAlpha.sort(function(a, b) {
+            if (a.value > b.value) {
+                return 1;
+            }
+            if (a.value < b.value) {
+                return -1;
+            }
+            return 0;
+            });
+          
+        // Nouvel affichage par ordre alphabétique
+        cameraFiltreIndex = mappedAlpha.map(function(e){
+        return cameraFiltreIndex[e.index];
+        });
+    }    
+}
 
+// Ecoute de l'option de triage des maps
+trierPar.addEventListener("change" , (event) =>{
+    event.preventDefault();
+    trierParValue = trierPar.options[trierPar.selectedIndex].text;
+    showCameras();
+})
+
+// Permet de faire une recherche de produit par nom
+searchInput.addEventListener('input', (e) => {searchTerm = e.target.value;
+    showCameras();
+});
