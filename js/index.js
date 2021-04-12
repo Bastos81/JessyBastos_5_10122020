@@ -7,8 +7,10 @@ indexUrlPathname = getUrlPage.pathname;
 // Création des map produit
 const showCameras = async() => {
 	await getCameras();
+    // Création du filtre de la barre de recheche
     let cameraFiltreIndex = cameras.filter(camera => camera.name.toLowerCase().includes(searchTerm.toLowerCase()));
     let cameraFiltreIndexNombre = cameraFiltreIndex.length;
+    // Si la recherche ne correspond à aucun produit présent dans l'api
     if (cameraFiltreIndexNombre === 0) {
         results.innerHTML = 
         ` 
@@ -24,6 +26,7 @@ const showCameras = async() => {
             </div>
         </div>
         ` ; 
+    // Affichage des map sans recherche ou si la recherche correspond à un produit présent dans l'api
     } else {
         results.innerHTML = (
             cameraFiltreIndex.map(camera => ( 
