@@ -65,7 +65,7 @@ const showChoosenCameras = async() => {
                                 <div class="form-group row">
                                     <label for="cameraLenses" class="col-sm-2 col-form-label">Objectif</label>
                                     <select class="col-sm-9" id="cameraLenses">
-                                        
+                                    // JS Affichage des lenses
                                     </select>
                                 </div>
                                 <div class="form-group row">

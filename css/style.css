@@ -70,15 +70,14 @@ header div nav a img {
   position: relative;
 }
 .header--cart svg {
-  overflow: visible;
   position: absolute;
   top: 7px;
-  right: -20px;
+  right: 60px;
 }
 .header--cart--counter {
   position: absolute;
   top: -5px;
-  right: -32px;
+  right: 50px;
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -88,6 +87,31 @@ header div nav a img {
   color: black;
   background: #ffc107;
   font-weight: 700;
+}
+@media (min-width: 992px) {
+  .header--cart {
+    position: relative;
+    margin-left: 30px;
+  }
+  .header--cart svg {
+    position: absolute;
+    top: 7px;
+    right: -22px;
+  }
+  .header--cart--counter {
+    position: absolute;
+    top: -5px;
+    right: -32px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background: #ffc107;
+    font-weight: 700;
+  }
 }
 
 .footer--social svg {

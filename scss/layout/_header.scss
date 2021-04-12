@@ -24,15 +24,14 @@ header{
     &--cart {
         position: relative;
         & svg {
-           overflow: visible;
-           position: absolute;
+        position: absolute;
             top: 7px;
-            right: -20px;
+            right: 60px;
         }
         &--counter {
             position: absolute;
             top: -5px;
-            right: -32px;
+            right: 50px;
             width: 18px;
             height: 18px;
             border-radius: 50%;
@@ -43,5 +42,30 @@ header{
             background: #ffc107;
             font-weight: 700;
         }
-    } 
+    }
+    @media (min-width: 992px){
+        &--cart {
+            position: relative;
+            margin-left: 30px;
+            & svg {
+            position: absolute;
+                top: 7px;
+                right: -22px;
+            }
+            &--counter {
+                position: absolute;
+                top: -5px;
+                right: -32px;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: black;
+                background: #ffc107;
+                font-weight: 700;
+            }
+        }
+    }     
 }
