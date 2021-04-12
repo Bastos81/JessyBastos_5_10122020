@@ -23,7 +23,7 @@ function addConfirmationOrder() {
                 <p class="card-text confirm-montant font-weight-bolder">${commandePrixTotal + " €"}</p>
                 <p class="card-text confirm-idcommande font-weight-bolder"><u>Votre numéro de commande :</u></p>
                 <p class="card-text confirm-idcommande font-weight-bolder">${orderId}</p>
-                <a href="../index.html" class="stretched-link btn btn-dark col-8">Retour à l'accueil</a>
+                <a href="../index.html" class="stretched-link btn btn-warning col-8">Retour à l'accueil</a>
               </div>
             </div>
           </div>
