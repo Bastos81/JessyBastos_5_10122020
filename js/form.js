@@ -90,7 +90,7 @@ async function postForm(dataToSend) {
             console.error('Retour du serveur : ', response.status);
         }
     } catch (e) {
-        console.log(e);
+        alert("Le serveur semble injoignable, réessayer dans quelques instants!");
     }
 }
 
