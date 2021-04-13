@@ -109,15 +109,22 @@
         <h1 class="page-titre">Notre sélection d'appareils photo vintages</h1>
       </div>
     </div>
-    <div class="form-group row ml-1" id="trier-par">
+    <div class="form-group row mb-4" id="cont-filtre-tri">
       <!-- Fonction de tri des produits-->
-      <select class="col-6 col-lg-3 form-control" id="trier-par-select">
+      <select class="col-11 ml-3 mt-3 col-lg-3 form-control" id="trier-par-select">
         <option value="">Trier par :</option>
         <option value="1">Prix croissant</option>
         <option value="2">Prix décroissant</option>
         <option value="3">Ordre alphabétique</option>
       </select>
-  </div>
+      <!-- Fonction de filtre des produits-->
+      <select class="col-11 ml-3 mt-3 col-lg-3 form-control" id="filtrer-par-select">
+        <option value="">Filtrer par tranche de prix :</option>
+        <option value="1">moins de 1 500€</option>
+        <option value="2">entre 1 500€ et 3 000€</option>
+        <option value="3">Plus de 3 000€</option>
+      </select>
+    </div>
     <div class="row" id="productList">
       <!-- Script JS Création des map caméra-->
     </div>

@@ -2,7 +2,7 @@
 const searchInput = document.getElementById("search");
 const results = document.getElementById("productList");
 const panierLogo = document.getElementById("link-panier");
-const conteneurTrierPar = document.getElementById("trier-par-select");
+const conteneurTrierFiltrer = document.getElementById("cont-filtre-tri");
 let productPanier = JSON.parse(localStorage.getItem("productPanier"));
 let product;
 let searchTerm = '';
@@ -34,7 +34,7 @@ const getCameras = async() => {
 function errorMessage() {
   // Index
   if (getUrlPagePathname === indexUrlPathname){
-    conteneurTrierPar.classList.add("hidden");
+    conteneurTrierFiltrer.classList.add("hidden");
     results.innerHTML = 
       ` 
         <div class="col-12 mt-2">

@@ -28,6 +28,9 @@ async function getPanier() {
                 <tr>
                     <th scope="row" colspan="6">Votre panier est vide</th>
                 </tr>
+                <tr>
+                    <th colspan="6"><a href="../index.html" class="stretched-link btn btn-warning">Retour à l'accueil</a></th>
+                </tr>
             `;
     } else {
         bouttonValiderForm.disabled = false;
