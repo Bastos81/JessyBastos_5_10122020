@@ -20,12 +20,12 @@ const showCameras = async() => {
 	await getCameras();
     // Filtre de la barre de recheche
     cameraIndex = cameras.filter(camera => camera.name.toLowerCase().includes(searchTerm.toLowerCase()));
-    let cameraIndexNombre = cameraIndex.length;
     // Filtre "filtrer par tranche de prix"
     filtrerMap();
     // Vérification de l'ordre d'affichage via l'option de triage
     trierMap();
     // Si la recherche ne correspond à aucun produit présent dans l'api
+    let cameraIndexNombre = cameraIndex.length;
     if (cameraIndexNombre === 0) {
         results.innerHTML = 
         ` 
@@ -35,8 +35,9 @@ const showCameras = async() => {
                 <h1 class="card-title error-title">Aucun produit ne correspond à votre recherche</h1>
             </div>
             <div class="card-body error-info">
-                <p class="card-text error-description">Mais rassurez-vous, nous en avons beaucoup d'autres!</p>
-                <a href="index.html" class="stretched-link btn btn-dark col-8">Retour à l'accueil</a>
+                <p class="card-text error-description">Nous vous invitons à vérifier chaque élément de votre recherche</p>
+                <p class="card-text error-description">Sinon rassurez-vous, nous avons beaucoup d'autres produits!</p>
+                <a href="index.html" class="stretched-link btn btn-warning col-8">Réinitialiser ma recherche</a>
             </div>
             </div>
         </div>
