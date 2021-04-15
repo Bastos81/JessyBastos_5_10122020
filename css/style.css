@@ -63,7 +63,7 @@ header div nav a img {
   align-items: center;
 }
 .navbar-nav a:hover {
-  color: orange !important;
+  color: #ffc107 !important;
 }
 
 .header--cart {
@@ -121,7 +121,7 @@ header div nav a img {
 }
 
 .footer--social svg:hover {
-  color: orange;
+  color: #ffc107;
 }
 
 footer a {
@@ -131,7 +131,7 @@ footer a {
 
 footer a:hover {
   text-decoration: none;
-  color: orange;
+  color: #ffc107;
 }
 
 .footer--social a:hover {
@@ -182,7 +182,7 @@ footer a:hover {
   }
 }
 .carousel-caption a:hover {
-  background-color: orange;
+  background-color: #ffc107;
 }
 
 .product-page img {
@@ -210,6 +210,16 @@ footer a:hover {
   table {
     font-size: 0.5rem;
   }
+}
+
+.link-camera {
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+}
+.link-camera:hover {
+  color: #ffc107;
+  text-decoration: none;
 }
 
 @media (min-width: 576px) and (max-width: 992px) {

@@ -43,7 +43,7 @@ async function getPanier() {
                 .map(cameraPanier => ( 
                      ` 
                         <tr id="${cameraPanier.idCamera}">
-                            <td scope="row">${cameraPanier.nameCamera}</td>
+                            <td scope="row"><a href="../html/produit.html?id= ${cameraPanier.idCamera}" class="link-camera">${cameraPanier.nameCamera}</a></td>
                             <td>${cameraPanier.resultsLensesChoice}</td>
                             <td>${cameraPanier.priceCamera}</td>
                             <td>${cameraPanier.quantityCamera}</td>

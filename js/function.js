@@ -35,6 +35,7 @@ function errorMessage() {
   // Index
   if (getUrlPagePathname === indexUrlPathname){
     conteneurTrierFiltrer.classList.add("hidden");
+    searchInput.classList.add("hidden");
     results.innerHTML = 
       ` 
         <div class="col-12 mt-2">

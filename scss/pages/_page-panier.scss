@@ -8,6 +8,16 @@ table{
     }
 }
 
+.link-camera{
+    color: $colour-text-primary;
+    font-weight: 700;
+    text-decoration: none;
+    &:hover{
+        color: $colour-primary;
+        text-decoration: none;
+    }
+}
+
 #btn-supprimer-tout{
     @media (min-width: 576px) and (max-width: 992px){
         font-size: 0.9rem;

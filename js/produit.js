@@ -25,7 +25,7 @@ const showChoosenCameras = async() => {
     } else {
         console.log("Aucun produit sélectionné");
     }
-    let choosenCamera = cameras.find(cameras => cameras['_id'] === cameraUrlId);
+    let choosenCamera = cameras.find(cameras => cameras._id === cameraUrlId);
     // Création du HTML
     // Si aucun id dans l'Url ou si il ne correspond à aucun produit présent dans l'api
     if (choosenCamera == null || cameraUrlIdSpace == null){

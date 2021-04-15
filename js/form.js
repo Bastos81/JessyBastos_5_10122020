@@ -82,6 +82,7 @@ async function postForm(dataToSend) {
             body: dataToSend,
         });
         if (response.ok) {
+            alert("Les informations de votre commande viennent d'être envoyées à nos services.");
             let responseId = await response.json();
             getOrderConfirmationId(responseId);
             localStorage.clear();
